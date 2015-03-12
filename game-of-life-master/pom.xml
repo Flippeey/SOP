@@ -32,6 +32,30 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.glassfish.maven.plugin</groupId>
+                <artifactId>maven-glassfish-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <glassfishDirectory>${local.glassfish.home}</glassfishDirectory>
+                    <user>${local.glassfish.user}</user>
+                    <passwordFile>${local.glassfish.passfile}</passwordFile>
+                    <domain>
+                        <name>${local.glassfish.domain}</name>
+                        <httpPort>${local.glassfish.httpport}</httpPort>
+                        <adminPort>${local.glassfish.adminport}</adminPort>
+                    </domain>
+                    <components>
+                        <component>
+                            <name>${project.name}</name>
+                            <artifact>target/${project.name}-${project.version}.war</artifact>
+                        </component>
+                    </components>
+                    <debug>true</debug>
+                    <terse>false</terse>
+                    <echo>true</echo>
+                </configuration>
+            </plugin>
+            <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
                 <configuration>
