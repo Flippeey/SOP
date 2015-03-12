@@ -8,6 +8,7 @@ public enum Cell {
     private Cell(final String initialSymbol) {
         this.symbol = initialSymbol;
     }
+    ///commentaar
 
     @Override
     public String toString() {
