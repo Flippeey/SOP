@@ -19,7 +19,7 @@
         <thucydides.version>0.9.268</thucydides.version>
         <jelastic.context>gameoflife</jelastic.context>
         <jelastic.environment>wakaleo</jelastic.environment>
-		  <glassfish.properties.file.argument></glassfish.properties.file.argument>
+        <glassfish.properties.file.argument></glassfish.properties.file.argument>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -36,7 +36,9 @@
                 <artifactId>properties-maven-plugin</artifactId>
                 <version>1.0-alpha-2</version>
                 <configuration>
-                    <files><file>game-of-life-master/gameoflife-build/target/maven-archiver/pom.properties</file></files>
+                    <files>
+                        <file>${basedir}/properties/${glassfish.properties.file.argument}.properties</file>
+                    </files>
                 </configuration>
             </plugin>
             <plugin>
@@ -46,7 +48,7 @@
                 <configuration>
                     <glassfishDirectory>${local.glassfish.home}</glassfishDirectory>
                     <user>${local.glassfish.user}</user>
-                    <passwordFile>${local.glassfish.passfile}</passwordFile>
+                    <passwordFile>${basedir}/passwords/${glassfish.pwdfile}</passwordFile>
                     <domain>
                         <name>${local.glassfish.domain}</name>
                         <httpPort>${local.glassfish.httpport}</httpPort>
@@ -260,18 +262,18 @@
                 <plugins>
                     <!-- CHECKSTYLE -->
                     <!--<plugin>-->
-                        <!--<artifactId>maven-checkstyle-plugin</artifactId>-->
-                        <!--<version>2.9.1</version>-->
-                        <!--<dependencies>-->
-                            <!--<dependency>-->
-                                <!--<groupId>com.wakaleo.gameoflife</groupId>-->
-                                <!--<artifactId>gameoflife-build</artifactId>-->
-                                <!--<version>${project.version}</version>-->
-                            <!--</dependency>-->
-                        <!--</dependencies>-->
-                        <!--<configuration>-->
-                            <!--<configLocation>custom-checkstyle.xml</configLocation>-->
-                        <!--</configuration>-->
+                    <!--<artifactId>maven-checkstyle-plugin</artifactId>-->
+                    <!--<version>2.9.1</version>-->
+                    <!--<dependencies>-->
+                    <!--<dependency>-->
+                    <!--<groupId>com.wakaleo.gameoflife</groupId>-->
+                    <!--<artifactId>gameoflife-build</artifactId>-->
+                    <!--<version>${project.version}</version>-->
+                    <!--</dependency>-->
+                    <!--</dependencies>-->
+                    <!--<configuration>-->
+                    <!--<configLocation>custom-checkstyle.xml</configLocation>-->
+                    <!--</configuration>-->
                     <!--</plugin>-->
 
                     <!-- PMD -->
