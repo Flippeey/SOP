@@ -46,7 +46,7 @@
                 <artifactId>maven-glassfish-plugin</artifactId>
                 <version>2.1</version>
                 <configuration>
-                    <glassfishDirectory>${local.glassfish.home}</glassfishDirectory>
+                    <glassfishDirectory>${glassfish.home}</glassfishDirectory>
                     <user>${local.glassfish.user}</user>
                     <passwordFile>${basedir}/passwords/${glassfish.pwdfile}</passwordFile>
                     <domain>
