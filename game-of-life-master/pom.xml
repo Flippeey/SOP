@@ -45,8 +45,14 @@
                 <groupId>org.glassfish.maven.plugin</groupId>
                 <artifactId>maven-glassfish-plugin</artifactId>
                 <version>2.1</version>
+				<executions>
+  <execution>
+    <phase>none</phase>
+    <goals>
+      <goal>deploy</goal>
+    </goals>
                 <configuration>
-                    <glassfishDirectory>C:\Program Files (x86)\glassfish-4.1</glassfishDirectory>
+                    <glassfishDirectory>C:\Program Files (x86)\glassfish-4.1\</glassfishDirectory>
                     <user>${local.glassfish.user}</user>
                     <passwordFile>${basedir}/passwords/${glassfish.pwdfile}</passwordFile>
                     <domain>
@@ -64,6 +70,8 @@
                     <terse>false</terse>
                     <echo>true</echo>
                 </configuration>
+				 </execution>
+</executions>
             </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
